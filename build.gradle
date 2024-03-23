@@ -1,0 +1,33 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'io.freefair.lombok' version '8.+'
+}
+
+group 'org.example'
+version '0.0.1'
+
+application {
+    mainClass.set('io.github.lilcatlily.bot.Launcher')
+}
+
+repositories {
+	mavenLocal()
+    mavenCentral()
+    maven {
+        url "https://jitpack.io"
+    }
+}
+
+dependencies {
+	implementation 'gdn.rom:JDATools:6-SNAPSHOT'
+    implementation 'net.dv8tion:JDA:latest.integration'
+	implementation 'org.tinylog:tinylog-api:2.6.2'
+	implementation 'org.tinylog:tinylog-impl:2.6.2'
+    //For Gradle, add to dependencies section of build.gradle
+    implementation group: 'com.cloudinary', name: 'cloudinary-http44', version: 'latest.release'
+}
+
+test {
+    useJUnitPlatform()
+}
