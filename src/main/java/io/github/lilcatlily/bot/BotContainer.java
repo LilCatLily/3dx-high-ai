@@ -64,7 +64,7 @@ public class BotContainer extends DiscordBot
     @Override
     protected String getToken()
     {
-        return "MTIyMDIwNDc1NDI0MDY2NzcxOA.GId-1-.AvAPb1ga4Fb9140CdPpPHN4PMSi8yNnsilN4Uk";
+        return "<BOT TOKEN>";
     }
 
     @Override
