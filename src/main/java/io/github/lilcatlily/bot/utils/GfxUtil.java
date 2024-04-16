@@ -36,6 +36,11 @@ public class GfxUtil
         addCenterText(text, font, x - 1, y - 1, g, color);
     }
 
+    public static void addText(String text, Font font, int x, int y, Graphics g)
+    {
+        addText(text, font, x, y, g, Color.BLACK);
+    }
+    
     public static void addText(String text, Font font, int x, int y, Graphics g, Color color)
     {
         g.setFont(font);
@@ -43,6 +48,11 @@ public class GfxUtil
         g.drawString(text, x, y);
     }
 
+    public static void addTextWithMaxWidth(String text, Font font, int x, int y, Graphics g, int maxWidth)
+    {
+        addTextWithMaxWidth(text, font, x, y, g, Color.BLACK, maxWidth);
+    }
+    
     public static void addTextWithMaxWidth(String text, Font font, int x, int y, Graphics g, Color color, int maxWidth)
     {
         g.setColor(color);
@@ -62,7 +72,7 @@ public class GfxUtil
         return font;
     }
     
-    private static FontMetrics getFontMetrics(Font font) {
+    public static FontMetrics getFontMetrics(Font font) {
         Graphics graphics = new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB).getGraphics();
         if (graphics instanceof Graphics2D) {
             ((Graphics2D) graphics).setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);

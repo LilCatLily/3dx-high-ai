@@ -1,5 +1,7 @@
 package io.github.lilcatlily.bot.data.manager;
 
+import com.fasterxml.jackson.annotation.PropertyAccessor;
+import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.json.JsonReadFeature;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -12,8 +14,9 @@ import java.util.function.Supplier;
 public class JsonDataManager<T> implements DataManager<T> {
 
 	private static final ObjectMapper mapper = new ObjectMapper()
-			.configure(JsonReadFeature.ALLOW_UNESCAPED_CONTROL_CHARS.mappedFeature(), true) // Allow newlines.
-			.configure(JsonReadFeature.ALLOW_MISSING_VALUES.mappedFeature(), true);
+	                .setVisibility(PropertyAccessor.FIELD, Visibility.ANY)
+	                .enable(JsonReadFeature.ALLOW_UNESCAPED_CONTROL_CHARS.mappedFeature())
+	                .enable(JsonReadFeature.ALLOW_MISSING_VALUES.mappedFeature());
 	private final Path path;
 	private final T data;
 	private final Supplier<T> constructor;

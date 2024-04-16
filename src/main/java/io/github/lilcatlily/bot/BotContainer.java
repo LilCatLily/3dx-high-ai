@@ -7,7 +7,7 @@ import static net.dv8tion.jda.api.utils.cache.CacheFlag.SCHEDULED_EVENTS;
 import gdn.rom.jda.command.*;
 import gdn.rom.jda.common.*;
 import gdn.rom.jda.discordbot.DiscordBot;
-import io.github.lilcatlily.bot.command.RequestNewIdCommand;
+import io.github.lilcatlily.bot.command.*;
 import lombok.Getter;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.Activity;
@@ -42,7 +42,7 @@ public class BotContainer extends DiscordBot
     @Override
     protected void addSlashCommands(ToolSet<SlashCommand> set)
     {
-        set.add(new RequestNewIdCommand());
+        set.add(new RegisterCommand());
     }
 
     @Override
@@ -64,7 +64,7 @@ public class BotContainer extends DiscordBot
     @Override
     protected String getToken()
     {
-        return "<BOT TOKEN>";
+        return "<BOT TOKEN GOES HERE>";
     }
 
     @Override

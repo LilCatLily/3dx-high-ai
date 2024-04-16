@@ -10,6 +10,22 @@ public class BotData
 {
     private static JsonDataManager<Id> IdCount;
     private static JsonDataManager<CloudinaryData> cloudinary;
+    private static JsonDataManager<Generated> generated;
+    private static JsonDataManager<Options> options;
+    
+    public static JsonDataManager<Options> options() {
+        if (options == null) {
+            options = new JsonDataManager<>(Options.class, new File(Resources.getDataDir(), "options.json"), Options::new);
+        }
+        return options;
+    }
+    
+    public static JsonDataManager<Generated> generated() {
+        if (generated == null) {
+            generated = new JsonDataManager<>(Generated.class, new File(Resources.getDataDir(), "generated.json"), Generated::new);
+        }
+        return generated;
+    }
     
     public static JsonDataManager<CloudinaryData> cloudinary() {
         if (cloudinary == null) {
@@ -27,7 +43,9 @@ public class BotData
     
     public static void createFiles()
     {
-        IdCount().save();
-        cloudinary().save();
+        IdCount();
+        cloudinary();
+        generated();
+        options();
     }
 }
